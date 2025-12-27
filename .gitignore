@@ -1,0 +1,20 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Production
+dist
+build
+
+# Misc
+.DS_Store
+*.log
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode
+.idea

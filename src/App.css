@@ -1,0 +1,357 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0a0a1e 0%, #1a0a2e 50%, #16213e 100%);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  perspective: 1000px;
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+.layer-1 {
+  z-index: 5;
+}
+
+.layer-2 {
+  z-index: 3;
+}
+
+.layer-3 {
+  z-index: 10;
+}
+
+.background-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.message-container {
+  text-align: center;
+  max-width: 90%;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-heading {
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #FFD700, #FFC0CB, #FFE4E1, #FFD700);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+  animation: gradientShift 3s ease infinite, glow 2s ease-in-out infinite;
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(255, 192, 203, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.8));
+  }
+}
+
+.romantic-message {
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  color: #FFE4E1;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  text-shadow: 0 2px 10px rgba(255, 192, 203, 0.3);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.final-celebration {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+.final-message {
+  margin-top: 2rem;
+  animation: scaleIn 0.5s ease-out;
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.love-message {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #FF1493, #FFB6C1, #FFC0CB, #FFD700);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 2s ease infinite, pulse 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(255, 20, 147, 0.8));
+  line-height: 1.6;
+  text-align: center;
+}
+
+.celebration-extras {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.floating-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+  content: '💖';
+  position: absolute;
+  font-size: 3rem;
+  animation: floatUp 4s ease-in infinite;
+  opacity: 0;
+}
+
+.floating-hearts::before {
+  left: 20%;
+  animation-delay: 0.5s;
+}
+
+.floating-hearts::after {
+  right: 20%;
+  animation-delay: 1.5s;
+}
+
+@keyframes floatUp {
+  0% {
+    bottom: -50px;
+    opacity: 0;
+    transform: translateX(0) rotate(0deg) scale(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(30px) rotate(180deg) scale(1.2);
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+    transform: translateX(-30px) rotate(360deg) scale(0.5);
+  }
+}
+
+.sparkle-burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.sparkle-burst::before,
+.sparkle-burst::after {
+  content: '✨';
+  position: absolute;
+  font-size: 2rem;
+  animation: sparkleBurst 2s ease-out infinite;
+  opacity: 0;
+}
+
+.sparkle-burst::before {
+  left: 30%;
+  top: 40%;
+  animation-delay: 0.3s;
+}
+
+.sparkle-burst::after {
+  right: 30%;
+  top: 60%;
+  animation-delay: 0.8s;
+}
+
+@keyframes sparkleBurst {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .message-container {
+    max-width: 95%;
+  }
+  
+  .main-heading {
+    margin-bottom: 1.5rem;
+  }
+  
+  .romantic-message {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Prevent text selection on mobile */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Smooth scrolling disabled */
+body {
+  overscroll-behavior: none;
+}
+
+/* Small celebration button */
+.small-celebration-button {
+  margin-top: 1.5rem;
+  padding: 12px;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, #FF1493, #FFB6C1);
+  border: 2px solid rgba(255, 20, 147, 0.6);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5);
+  animation: heartBeat 2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.small-celebration-button:hover {
+  transform: scale(1.15) rotate(-10deg);
+  box-shadow: 0 8px 30px rgba(255, 20, 147, 0.7);
+}
+
+.small-celebration-button:active {
+  transform: scale(0.95);
+}
+
+/* Close celebration button */
+.close-celebration-button {
+  margin-top: 2rem;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #FFF;
+  background: linear-gradient(135deg, #FF69B4, #FFB6C1);
+  border: 2px solid rgba(255, 192, 203, 0.5);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+  animation: fadeInUp 0.5s ease-out 3s backwards;
+}
+
+.close-celebration-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+}
+
+.close-celebration-button:active {
+  transform: scale(0.95);
+}

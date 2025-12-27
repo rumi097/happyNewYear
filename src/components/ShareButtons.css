@@ -1,0 +1,217 @@
+.share-buttons-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  animation: slideInFromBottom 1s ease-out 3s backwards;
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.share-main-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 192, 203, 0.6);
+  background: linear-gradient(135deg, #FF69B4, #FFB6C1);
+  color: #FFF;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+  position: relative;
+  z-index: 10;
+}
+
+.share-main-button:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 35px rgba(255, 105, 180, 0.7);
+}
+
+.share-main-button.expanded {
+  background: linear-gradient(135deg, #FF1493, #FF69B4);
+  transform: rotate(90deg);
+}
+
+.share-buttons-list {
+  position: absolute;
+  bottom: 75px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: buttonsAppear 0.4s ease-out;
+}
+
+@keyframes buttonsAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.share-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: buttonPop 0.3s ease-out backwards;
+}
+
+.share-button:nth-child(1) { animation-delay: 0.05s; }
+.share-button:nth-child(2) { animation-delay: 0.1s; }
+.share-button:nth-child(3) { animation-delay: 0.15s; }
+.share-button:nth-child(4) { animation-delay: 0.2s; }
+.share-button:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes buttonPop {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.share-button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.share-button:active {
+  transform: scale(0.95);
+}
+
+.whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.messenger {
+  background: linear-gradient(135deg, #00B2FF, #006AFF);
+}
+
+.facebook {
+  background: linear-gradient(135deg, #1877F2, #0D5FCA);
+}
+
+.twitter {
+  background: linear-gradient(135deg, #1DA1F2, #0D8BD9);
+}
+
+.copy {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.copied-notification {
+  position: absolute;
+  bottom: 75px;
+  right: 75px;
+  background: rgba(255, 215, 0, 0.95);
+  color: #0a0a1e;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+  animation: notificationSlide 2s ease-out;
+  white-space: nowrap;
+}
+
+@keyframes notificationSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .share-buttons-container {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .share-main-button {
+    width: 55px;
+    height: 55px;
+    font-size: 1rem;
+  }
+
+  .share-button {
+    width: 45px;
+    height: 45px;
+  }
+
+  .share-buttons-list {
+    bottom: 65px;
+    gap: 10px;
+  }
+
+  .copied-notification {
+    bottom: 65px;
+    right: 65px;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .share-buttons-container {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .share-main-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .share-button {
+    width: 42px;
+    height: 42px;
+  }
+
+  .share-button svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Prevent buttons from interfering with other elements */
+.share-buttons-container * {
+  pointer-events: auto;
+}
