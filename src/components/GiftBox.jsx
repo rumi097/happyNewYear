@@ -65,7 +65,7 @@ const GiftBox = ({ onOpen, onClose }) => {
     {
       icon: "🎭",
       title: "Adventure Together",
-      message: "Let's create amazing memories in the new year"
+      message: "Let's create amazing memories in this new year"
     },
     {
       icon: "🌹",
@@ -171,7 +171,7 @@ const GiftBox = ({ onOpen, onClose }) => {
           </div>
           
           <button className="next-gift-button" onClick={handleNext}>
-            {currentGiftIndex < gifts.length - 1 ? '✨ Next Gift' : '💝 Final Message'}
+            {currentGiftIndex < gifts.length - 1 ? '✨ Reveal Another Wish For You' : '💝 Final Message'}
           </button>
         </div>
       )}
@@ -181,10 +181,10 @@ const GiftBox = ({ onOpen, onClose }) => {
           <div className="many-more-message">
             <div className="message-icon">🎁💖✨</div>
             <div className="message-text">
-              Many more beautiful moments like this are coming for you in the new year!
+              We will create many more beautiful moments together in this new year! Love you always.
             </div>
             <div className="message-subtext">
-              Each day with you is a gift I treasure forever
+              Each day with you is a gift I treasure forever.
             </div>
             <button className="close-final-button" onClick={handleCloseFinalMessage}>
               ✨ Close
